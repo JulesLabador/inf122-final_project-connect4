@@ -10,6 +10,7 @@ public class Connect4Board<T> extends Board<T>
         super(6, 7, 2);
         connect4GameState = new Connect4State<>(2);
     }
+    
     public Connect4Board(int height, int width, int totalPlayers)
     {
         super(height, width, totalPlayers);
@@ -43,36 +44,5 @@ public class Connect4Board<T> extends Board<T>
             }
         }
         return -1;
-    }
-
-    // Prints the board to console
-    // If a tile has a value, print the value in the appropriate row and column
-    // If a tile has no value, print '.' in the appropriate row and column
-    public void printBoard()
-    {
-        ArrayList<ArrayList<Tile<T>>> boardArray = super.getBoard();
-        for(int row = 0; row < super.getHeight(); row++)
-        {
-            for(int col = 0; col < super.getWidth(); col++)
-            {
-                Tile<T> currentTile = boardArray.get(row).get(col);
-                // if tile has no value, print '.'
-                if(currentTile == null)
-                {
-                    System.out.print(" . ");
-                }
-                else
-                {
-                    System.out.print(" " + currentTile.getValue() + " ");
-                }
-            }
-            System.out.println();
-        }
-        // print column numbers
-        for(int i = 1; i <= super.getWidth(); i++)
-        {
-            System.out.print(" " + i + " ");
-        }
-        System.out.println();
     }
 }

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/ConnectFour.iml" filepath="$PROJECT_DIR$/ConnectFour.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/inf122-final_project-connect4.iml" filepath="$PROJECT_DIR$/inf122-final_project-connect4.iml" />
+>>>>>>> 6ae46e4 (Re-added Bock's scoring function)
     </modules>
   </component>
 </project>

@@ -1,7 +1,33 @@
 public class Connect4 extends Game {
 
     @Override
-    public void play() { 
+    public void play() {
+        if(ctrl.getTotalPlayers() < 2)
+        {
+            System.out.println("\nNot enough users to play. Please add another user\n");
+            return;
+        }
+        while(true)
+        {
+            System.out.println("\n" + ctrl.getCurrPlayer() + " playing as Player 1");
+            System.out.println("Select Player 2 from the list below");
+            ctrl.printPlayersExcept(ctrl.getCurrPlayer());
+            System.out.print("Select player: ");
+            String name = sc.nextLine();
+            if(name.equals(ctrl.getCurrPlayer()))
+            {
+                System.out.println("\n" + name + " is already Player 1");
+                continue;
+            }
+            if(!ctrl.playerNameExists(name))
+            {
+                System.out.println("\n" + name + " does not exist");
+                continue;
+            }
+            ctrl.loginPlayer2(name);
+            System.out.println("\n" + name + " playing as Player 2\n");
+            break;
+        }
         System.out.println(ctrl.getCurrPlayer() + " is RED");
         System.out.println(ctrl.getPlayer2() + " is YELLOW");
         Connect4Board<String> c4 = new Connect4Board<>();
@@ -40,10 +66,12 @@ public class Connect4 extends Game {
         if(c4.getTurn() % 2 == 0)
         {
             System.out.println("\n" + ctrl.getCurrPlayer() + " wins!");
+            ctrl.incrPlayerScore(ctrl.getCurrPlayer());
         }
         else
         {
             System.out.println("\n" + ctrl.getPlayer2() + " wins!");
+            ctrl.incrPlayerScore(ctrl.getPlayer2());
         }
     }
     
